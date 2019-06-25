@@ -1,5 +1,7 @@
 module Main(main) where
 
+import           Foundation
+
 import           Test.Hspec
 
 import           Lib
