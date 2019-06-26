@@ -1,13 +1,18 @@
-{ mkDerivation, base, foundation, hspec, stdenv }:
+{ mkDerivation, base, foundation, hpack, hspec, hspec-discover
+, stdenv
+}:
 mkDerivation {
   pname = "template";
-  version = "0.1.0.0";
+  version = "0.0.0.0";
   src = ./.;
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [ base foundation ];
+  libraryToolDepends = [ hpack ];
   executableHaskellDepends = [ base foundation ];
   testHaskellDepends = [ base foundation hspec ];
+  testToolDepends = [ hspec-discover ];
+  preConfigure = "hpack";
   license = "unknown";
   hydraPlatforms = stdenv.lib.platforms.none;
 }
